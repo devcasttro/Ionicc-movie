@@ -1,0 +1,40 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>
+      Filmes
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-searchbar #search
+                 debounce="100"
+                 animated="true"
+                 placeholder="Buscar..."
+                 clearInput=""
+                 (ionChange)="searchFilme($event)">
+  </ion-searchbar>
+
+
+  <ion-list *ngIf="filmesAPI">
+    <ion-list-header> Lista de Filmes </ion-list-header>
+
+    <ion-item *ngFor="let filme of filmesAPI; let i= index" routerLink="#">
+      <ion-thumbnail slot="start">
+        <img src="https://www.themoviedb.org/t/p/w500{{filme.poster_path}}">
+      </ion-thumbnail>
+
+
+      <ion-label>
+        <h2 class="ion-text-uppercase"> <strong>{{ filme.original_title }}</strong></h2>
+        <p class="estoque"> {{filme.release_date}} - 1H 50M </p>
+        <p class="preco"> <strong>{{ filme.genre_ids }}</strong> </p>
+      </ion-label>
+
+      <ion-chip [color]="filme.vote_average < 5 ? 'danger': ((filme.vote_average < 7) ? 'warning' : 'success') " outline>
+        <ion-label>{{filme.vote_average}}</ion-label>
+      </ion-chip>
+    </ion-item>
+  </ion-list>
+</ion-content>

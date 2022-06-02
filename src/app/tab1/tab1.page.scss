@@ -1,0 +1,17 @@
+ion-content {
+  ion-searchbar {
+    --border-radius: 10px;
+    --color: var(--ion-color-primary);
+  }
+
+  ion-list{
+    ion-chip {
+      padding-inline: 0;
+      height: 48px;
+      width: 48px;
+      border-radius: 50px;
+      justify-content: center;
+      border-width: 3px;
+    }
+  }
+}
