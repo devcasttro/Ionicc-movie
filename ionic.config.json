@@ -1,0 +1,7 @@
+{
+  "name": "ionicVideos",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
